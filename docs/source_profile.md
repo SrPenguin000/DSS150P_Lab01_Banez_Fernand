@@ -14,3 +14,18 @@
 * **Observation 1 (Strict Typing):** Because this is a Parquet file, the data types are strictly enforced and read correctly upon ingestion (e.g., `stock_quantity` is properly cast as `int32` and `unit_price` as `float64`), which reduces the transformation workload.
 * **Observation 2 (Data Quality):** The dataset is perfectly complete with 0 null values and 0 duplicated rows. 
 * **Observation 3 (Keys):** The `product_id` column contains exactly 200 distinct values for 200 rows, making it a reliable primary key for downstream table joins.
+
+## 4. PostgreSQL (support_tickets)
+* **Table Name:** `support_tickets`
+* **Row Count:** 250 rows
+* **Keys & Constraints:** `ticket_id` is the primary key (Not Null). 
+* **Columns & Nullability:**
+  * `ticket_id` (integer, NO NULLS)
+  * `customer_id` (varchar, NO NULLS)
+  * `category` (varchar, NO NULLS)
+  * `priority` (varchar, NO NULLS)
+  * `assigned_agent` (varchar, NULLABLE - represents unassigned tickets)
+  * `opened_at` (timestamp, NO NULLS)
+  * `resolved_at` (timestamp, NULLABLE - represents unresolved/open tickets)
+  * `status` (varchar, NO NULLS)
+* **Sample Data Observation:** A sample of 5 rows confirms that tickets without an assigned agent or resolution time properly use null values (e.g., Ticket #4 is "In Progress" with a null `resolved_at` date).
