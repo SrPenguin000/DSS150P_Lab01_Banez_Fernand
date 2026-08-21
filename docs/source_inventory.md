@@ -9,6 +9,8 @@
 | **Expected update pattern** | Batch (Daily/Weekly) | Batch or Streaming | Batch (Analytical) | On-Demand (API Call) | Transactional (Continuous) |
 | **Likely acquisition method** | File drop (SFTP/Cloud) | API or File drop | Data Lake export | HTTP GET Request | SQL Query / CDC |
 | **Schema location/owner** | Inferred from header | Embedded (Keys) | Embedded in file metadata | API Documentation | Database Information Schema |
-| **Possible primary/business key** | customer_id | order_id | product_id | *Pending API Inspection* | *Pending DB Inspection* |
+| **Possible primary/business key** | customer_id | order_id | product_id | id | *Pending DB Inspection* |
 | **Potential schema-evolution risk** | Columns added/removed, delimiter changes | Missing keys, nested structures changing | Low (Strictly typed), but types might change | High (Endpoints deprecating, payload changes) | Medium (DB migrations, altered constraints) |
 | **Potential data-quality risk** | Nulls, formatting issues, encoding errors | Missing values, mismatched data types | Null values | Rate limits, timeouts, incomplete payloads | Stale data, constraint violations |
+
+*Note: API retrieval timestamp (UTC): 2026-08-21T11:27:00+00:00*
