@@ -1,0 +1,11 @@
+   column_name    |     data_type     | is_nullable 
+------------------+-------------------+-------------
+ customer_id      | character varying | NO
+ first_name       | character varying | NO
+ last_name        | character varying | NO
+ email            | character varying | YES
+ city             | character varying | YES
+ signup_date      | date              | YES
+ customer_segment | character varying | YES
+(7 rows)
+
